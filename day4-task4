@@ -1,0 +1,45 @@
+) How to compare two JSON have the same properties with out order?
+
+A) let obj1={name:”person1”,age:5};
+B)let obj2={age:5;name :”person”};
+
+let obj1 = {name: "Person1", age: 5};
+let obj2 = {age: 5, name: "Person1"};
+let obj1Str = JSON.stringify(obj1);
+let obj2Str = JSON.stringify(obj2);
+if (obj1Str === obj2Str) {
+console.log("The two JSON objects are equal.");
+} else {
+console.log("The two JSON objects are not equal.");
+}
+
+
+2) Use the rest countries API URL https://restcountries.com/v3.1/all and display all the contry flag in the console .
+
+
+fetch('https://restcountries.com/v3.1/all')
+.then(response => response.json())
+.then(data => {
+data.forEach(country => {
+console.log(country.flags.png);
+});
+})
+.catch(error => console.error(error));
+
+
+
+3) Use the same rest countries and print all countries name , region, sub region and population 
+
+
+fetch('https://restcountries.com/v3.1/all')
+.then(response => response.json())
+.then(data => {
+data.forEach(country => {
+console.log(`Name: ${country.name.common}`);
+console.log(`Region: ${country.region}`);
+console.log(`Sub-region: ${country.subregion}`);
+console.log(`Population: ${country.population}`);
+console.log('----------------------');
+});
+})
+.catch(error => console.error(error));
